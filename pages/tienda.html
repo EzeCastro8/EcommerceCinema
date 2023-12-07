@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Cine Oeste</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="../assets/js/general.js"></script>
+    <script src="../assets/js/tienda.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../assets/images/slider/logo.png" alt="Cine Oeste" class="cineOeste">
+            </a>
+        </div>
+        <nav>
+            <ul class="navLinks">
+                <li><a href="./peliculas.html" class="linksPaginas">Peliculas</a></li>
+                <li><a href="./tienda.html" class="linksPaginas">Tienda</a></li>
+                <li><a href="./contacto.html" class="linksPaginas">Contáctanos</a></li>
+            </ul>
+        </nav>
+        <div class="logo">
+            <a href="./carrito.html">
+                <img id="carrito" class="carrito" src="../assets/images/shopping-cart-14-svgrepo-com.svg">
+            </a>
+        </div>
+    </header>
+
+    <ul class="elegirCategoria">
+        <li><a href="#vasos" class="listaCategoria">Vasos</a></li>
+        <li><a href="#termos" class="listaCategoria">Termos</a></li>
+        <li><a href="#estatuillas" class="listaCategoria">Estatuillas</a></li>
+        <li><a href="#accesorios" class="listaCategoria">Accesorios</a></li>
+    </ul>
+
+    <div class="boxBuscar">
+        <input class="inptBuscar" type="search" placeholder="Buscar productos">
+    </div>
+
+    <div>
+        <h1 class="categoriasTitulo" id="vasos">Vasos</h1>
+        <ul id= "divcontenedorVasos" class="categoriasTienda"></ul>
+
+        <h1 class="categoriasTitulo" id="termos">Termos</h1>
+        <ul id= "divcontenedorTermos" class="categoriasTienda"></ul>
+
+        <h1 class="categoriasTitulo" id="estatuillas">Estatuillas</h1>
+        <ul id= "divcontenedorEstatuillas" class="categoriasTienda"></ul>
+
+        <h1 class="categoriasTitulo" id="accesorios">Accesorios</h1>
+        <ul id= "divcontenedorAccesorios" class="categoriasTienda"></ul>
+    </div> 
+
+</body>
+
+</html>

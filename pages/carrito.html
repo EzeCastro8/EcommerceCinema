@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Cine Oeste</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="../assets/js/general.js"></script>
+    <script src="../assets/js/carrito.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../assets/images/slider/logo.png" alt="Cine Oeste" class="cineOeste">
+            </a>
+        </div>
+        <nav>
+            <ul class="navLinks">
+                <li><a href="./peliculas.html" class="linksPaginas">Peliculas</a></li>
+                <li><a href="./tienda.html" class="linksPaginas">Tienda</a></li>
+                <li><a href="./contacto.html" class="linksPaginas">Contáctanos</a></li>
+            </ul>
+        </nav>
+        <div class="logo">
+            <a href="./carrito.html">
+                <img id="carrito" class="carrito" src="../assets/images/shopping-cart-14-svgrepo-com.svg">
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <table >
+                <thead class="thBox">
+                    <tr>
+                        <th id="tablehead" class="carritoElementos">Producto</th>
+                        <th id="tablehead" class="carritoElementos">Nombre</th>
+                        <th id="tablehead" class="carritoElementos">Precio</th>
+                        <th id="tablehead" class="carritoElementos">Eliminar</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td class="separar"></td>
+                        <td class="separar"></td>
+                        <td class="separar"></td>
+                        <td class="separar">
+                            <button class="btnEliminar">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <div class="centrarBoton">
+            <button class="botonComprar" id="btnComprar">Comprar</button>
+        </div>
+    </main>
+
+</body>
+
+</html>
