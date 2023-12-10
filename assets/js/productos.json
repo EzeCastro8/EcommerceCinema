@@ -1,0 +1,114 @@
+[
+  {
+    "id": 1,
+    "nombre": "Blue beetle",
+    "tipo": "vasos",
+    "precio": 5000,
+    "imagen": "../assets/images/tienda/vaso1.png"
+  },
+  {
+    "id": 2,
+    "nombre": "La monja",
+    "tipo": "vasos",
+    "precio": 6000,
+    "imagen": "../assets/images/tienda/vaso2.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "Batman",
+    "tipo": "vasos",
+    "precio": 5500,
+    "imagen": "../assets/images/tienda/vaso3.jpg"
+  },
+  {
+    "id": 4,
+    "nombre": "Barbie",
+    "tipo": "vasos",
+    "precio": 7000,
+    "imagen": "../assets/images/tienda/vaso4.png"
+  },
+  {
+    "id": 5,
+    "nombre": "Ordinaty people",
+    "tipo": "termos",
+    "precio": 8000,
+    "imagen": "../assets/images/tienda/termo1.jpg"
+  },
+  {
+    "id": 6,
+    "nombre": "Animales fantasticos",
+    "tipo": "termos",
+    "precio": 7500,
+    "imagen": "../assets/images/tienda/termo2.jpg"
+  },
+  {
+    "id": 7,
+    "nombre": "Mujer maravilla",
+    "tipo": "termos",
+    "precio": 8500,
+    "imagen": "../assets/images/tienda/termo3.jpg"
+  },
+  {
+    "id": 8,
+    "nombre": "Freddy krueger",
+    "tipo": "termos",
+    "precio": 8500,
+    "imagen": "../assets/images/tienda/termo4.jpg"
+  },
+  {
+    "id": 9,
+    "nombre": "Star wars",
+    "tipo": "estatuillas",
+    "precio": 3000,
+    "imagen": "../assets/images/tienda/est1.jpg"
+  },
+  {
+    "id": 10,
+    "nombre": "Uncharted",
+    "tipo": "estatuillas",
+    "precio": 3000,
+    "imagen": "../assets/images/tienda/est2.jpg"
+  },
+  {
+    "id": 11,
+    "nombre": "Dragon ball",
+    "tipo": "estatuillas",
+    "precio": 3500,
+    "imagen": "../assets/images/tienda/est3.jpg"
+  },
+  {
+    "id": 12,
+    "nombre": "El joker",
+    "tipo": "estatuillas",
+    "precio": 3500,
+    "imagen": "../assets/images/tienda/est4.jpg"
+  },
+  {
+    "id": 13,
+    "nombre": "Mario bros",
+    "tipo": "accesorios",
+    "precio": 2000,
+    "imagen": "../assets/images/tienda/llave.jpg"
+  },
+  {
+    "id": 14,
+    "nombre": "Game of thrones",
+    "tipo": "accesorios",
+    "precio": 1800,
+    "imagen": "../assets/images/tienda/llave2.jpg"
+  },
+  {
+    "id": 15,
+    "nombre": "Baymax",
+    "tipo": "accesorios",
+    "precio": 2100,
+    "imagen": "../assets/images/tienda/llave3.jpg"
+  },
+  {
+    "id": 16,
+    "nombre": "Batman",
+    "tipo": "accesorios",
+    "precio": 2500,
+    "imagen": "../assets/images/tienda/llave4.jpg"
+  }
+]

@@ -218,6 +218,26 @@ nav{
     transform: rotateY(360deg);
     border-radius: 8px;
 }
+.contError{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1em;
+}
+
+.imagenError{
+    border-radius: 0.6em;
+}
+
+.cartelError{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    background-color: #3f3f3f;
+    color: white;
+    border-radius: 0.6em;
+    height: 100%;
+    padding: 1em;
+}
 
 /* Pre-Entrega */
 

@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const divContenedorAccesorios = document.getElementById("divcontenedorAccesorios")
     const btnCarrito = document.querySelector("img#carrito.carrito")
     const buscarProductos = document.querySelector("input.inptBuscar")
-
+    const URLPR = '../assets/js/productos.json'
     btnCarrito.addEventListener("mousemove", () => {
         if (shopcart.length > 0) {
             btnCarrito.title = `Tienes ${shopcart.length} producto/s`
@@ -42,6 +42,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
+    function armarErrorProductos() {
+        return `
+                    <li>
+                        <div class="contError">
+                            <img class="imagenError" src="../assets/images/error.png">
+                        </div>
+                        <p class="cartelError">No se pudieron cargar los productos, intente mas tarde nuevamente.</p>
+                    </li>
+                    <li>
+                        <div class="contError">
+                            <img class="imagenError" src="../assets/images/error.png">
+                        </div>
+                        <p class="cartelError">No se pudieron cargar los productos, intente mas tarde nuevamente.</p>
+                    </li>
+                    <li>
+                        <div class="contError">
+                            <img class="imagenError" src="../assets/images/error.png">
+                        </div>
+                        <p class="cartelError">No se pudieron cargar los productos, intente mas tarde nuevamente.</p>
+                    </li>
+                    <li>
+                        <div class="contError">
+                            <img class="imagenError" src="../assets/images/error.png">
+                        </div>
+                        <p class="cartelError">No se pudieron cargar los productos, intente mas tarde nuevamente.</p>
+                    </li>
+                    
+                 `
+        // TERMINAR!!! ARMAR CARD PARA CUANDO NO CARGUEN LOS PRODUCTOS
+    }
+
     function agregarAlCarrito() {
         const botonesAgregar = document.querySelectorAll("button.botonCarrito")
         if (botonesAgregar.length > 0) {
@@ -66,6 +97,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const vasos = productos.filter((producto) => producto.tipo === "vasos");
         if (vasos.length > 0) {
             vasos.forEach((producto) => divContenedorVasos.innerHTML += armarCards(producto))
+        } else {
+            divContenedorVasos.innerHTML = armarErrorProductos()
         }
     }
 
@@ -73,6 +106,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const termos = productos.filter((producto) => producto.tipo === "termos");
         if (termos.length > 0) {
             termos.forEach((producto) => divContenedorTermos.innerHTML += armarCards(producto))
+        } else {
+            divContenedorTermos.innerHTML = armarErrorProductos()
         }
     }
 
@@ -80,6 +115,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const estatuillas = productos.filter((producto) => producto.tipo === "estatuillas");
         if (estatuillas.length > 0) {
             estatuillas.forEach((producto) => divContenedorEstatuillas.innerHTML += armarCards(producto))
+        } else {
+            divContenedorEstatuillas.innerHTML = armarErrorProductos()
         }
     }
 
@@ -87,14 +124,29 @@ document.addEventListener("DOMContentLoaded", function () {
         const accesorios = productos.filter((producto) => producto.tipo === "accesorios");
         if (accesorios.length > 0) {
             accesorios.forEach((producto) => divContenedorAccesorios.innerHTML += armarCards(producto))
+        } else {
+            divContenedorAccesorios.innerHTML = armarErrorProductos()
         }
     }
 
-
-    cargarProductosVasos()
-    cargarProductosTermos()
-    cargarProductosEstatuillas()
-    cargarProductosAccesorios()
+    async function obtenerProductos(){
+        try {
+            const response = await fetch(URLPR)
+            const prods = await response.json()
+            await productos.push(...prods)
+            cargarProductosVasos(productos)
+            cargarProductosTermos(productos)
+            cargarProductosEstatuillas(productos)
+            cargarProductosAccesorios(productos)
+        } catch (errorPR) {
+            divContenedorVasos.innerHTML = armarErrorProductos()
+            divContenedorTermos.innerHTML = armarErrorProductos()
+            divContenedorEstatuillas.innerHTML = armarErrorProductos()
+            divContenedorAccesorios.innerHTML = armarErrorProductos()
+        }
+    }
+    
+    obtenerProductos()
     agregarAlCarrito()
 
 })  

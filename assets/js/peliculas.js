@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function (){
     const divContenedorFiccion = document.getElementById("ficcion")
     const divContenedorAventura = document.getElementById("aventura")
     const divContenedorSuspenso = document.getElementById("suspenso")
+    const URLPE = '../assets/js/peliculas.json'
 
     function armarCardsPeliculas(pelicula){
         return `
@@ -14,10 +15,39 @@ document.addEventListener("DOMContentLoaded", function (){
             </div>
             <div class="face back">
                 <div class="back-content">
-                <p class="card-text">${pelicula.resumen}</p>
+                    <p class="card-text">${pelicula.resumen}</p>
                 </div>
             </div>
         </li>
+        `
+    }
+
+    function armarErrorPelicula(){
+        return `
+        <li>
+            <div class="contError">
+                <img class="imagenError" src="../assets/images/error.png">
+            </div>
+            <p class="cartelError"> No se pudieron cargar las peliculas, intente mas tarde nuevamente.</p>
+        </li>    
+        <li>
+            <div class="contError">
+                <img class="imagenError" src="../assets/images/error.png">
+            </div>
+            <p class="cartelError"> No se pudieron cargar las peliculas, intente mas tarde nuevamente.</p>
+        </li> 
+        <li>
+            <div class="contError">
+                <img class="imagenError" src="../assets/images/error.png">
+            </div>
+            <p class="cartelError"> No se pudieron cargar las peliculas, intente mas tarde nuevamente.</p>
+        </li> 
+        <li>
+            <div class="contError">
+                <img class="imagenError" src="../assets/images/error.png">
+            </div>
+            <p class="cartelError"> No se pudieron cargar las peliculas, intente mas tarde nuevamente.</p>
+        </li> 
         `
     }
 
@@ -26,6 +56,8 @@ document.addEventListener("DOMContentLoaded", function (){
         console.log(terror)
         if (terror.length > 0) {
             terror.forEach((pelicula)=> divContenedorTerror.innerHTML += armarCardsPeliculas(pelicula))
+        } else {
+            divContenedorTerror.innerHTML = armarErrorPelicula
         }
     }
 
@@ -34,6 +66,8 @@ document.addEventListener("DOMContentLoaded", function (){
         console.log(comedia)
         if (comedia.length > 0) {
             comedia.forEach((pelicula)=> divContenedorComedia.innerHTML += armarCardsPeliculas(pelicula))
+        } else {
+            divContenedorTerror.innerHTML = armarErrorPelicula
         }
     }
 
@@ -42,6 +76,8 @@ document.addEventListener("DOMContentLoaded", function (){
         console.log(ficcion)
         if (ficcion.length > 0) {
             ficcion.forEach((pelicula)=> divContenedorFiccion.innerHTML += armarCardsPeliculas(pelicula))
+        } else {
+            divContenedorTerror.innerHTML = armarErrorPelicula
         }
     }
 
@@ -50,6 +86,8 @@ document.addEventListener("DOMContentLoaded", function (){
         console.log(aventura)
         if (aventura.length > 0) {
             aventura.forEach((pelicula)=> divContenedorAventura.innerHTML += armarCardsPeliculas(pelicula))
+        } else {
+            divContenedorTerror.innerHTML = armarErrorPelicula
         }
     }
 
@@ -58,12 +96,29 @@ document.addEventListener("DOMContentLoaded", function (){
         console.log(suspenso)
         if (suspenso.length > 0) {
             suspenso.forEach((pelicula)=> divContenedorSuspenso.innerHTML += armarCardsPeliculas(pelicula))
+        } else {
+            divContenedorTerror.innerHTML = armarErrorPelicula
         }
     }
 
-    agregarTerror()
-    agregarComedia()
-    agregarFiccion()
-    agregarAventura()
-    agregarSuspenso()
+    async function obtenerPeliculas() {
+        try {
+            const response = await fetch (URLPE)
+            const movies = await response.json()
+            await peliculas.push(...movies)
+            agregarTerror(peliculas)
+            agregarComedia(peliculas)
+            agregarFiccion(peliculas)
+            agregarAventura(peliculas)
+            agregarSuspenso(peliculas)
+        } catch (error) {
+            divContenedorTerror.innerHTML = armarErrorPelicula()
+            divContenedorComedia.innerHTML = armarErrorPelicula()
+            divContenedorFiccion.innerHTML = armarErrorPelicula()
+            divContenedorAventura.innerHTML = armarErrorPelicula()
+            divContenedorSuspenso.innerHTML = armarErrorPelicula()
+        }
+    }
+
+    obtenerPeliculas()
 }) 
