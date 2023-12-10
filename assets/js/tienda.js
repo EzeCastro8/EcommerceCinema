@@ -30,25 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
         divContenedorTermos.innerHTML = "";
         divContenedorEstatuillas.innerHTML = "";
         divContenedorAccesorios.innerHTML = "";
-
-        let resultadoPorTipo = productos.filter((productos) => productos.tipo.toLowerCase().includes(param))
-        console.table(resultadoPorTipo)
-
-        if (resultadoPorTipo.length > 0) {
-            resultadoPorTipo.forEach((producto)=>{
-            if (producto.tipo === "vasos"){
-                divContenedorVasos.innerHTML += armarCards(producto);
-            } else if (producto.tipo === "termos"){
-                divContenedorTermos.innerHTML += armarCards(producto);
-            }
-            else if (producto.tipo === "estatuillas"){
-                divContenedorEstatuillas.innerHTML += armarCards(producto);
-            }
-            else if (producto.tipo === "accesorios"){
-                divContenedorAccesorios.innerHTML += armarCards(producto);
-            }
-        })
-        }
         
         let resultadoPorNombre = productos.filter((productos) => productos.nombre.toLowerCase().includes(param))
         console.table(resultadoPorNombre)
@@ -70,20 +51,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         agregarAlCarrito()
     })
-
-       /* if (resultadoPorTipo.length > 0) {
-            resultadoPorTipo.forEach((producto) => divContenedorPrincipal.innerHTML += armarCards(producto));
-        }
-    
-        if (resultadoPorNombre.length === 0 && resultadoPorTipo.length === 0) {
-            divContenedorPrincipal.innerHTML = armarErrorProductos();
-        }
-        
-        if (param.length === ""){
-            productos.forEach((producto) => divContenedorPrincipal.innerHTML += armarCards(producto))
-        } */
-
-    
 
     function armarCards(producto) {
         return `<li>
