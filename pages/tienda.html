@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/style.css">
-    <script src="../assets/js/general.js"></script>
-    <script src="../assets/js/tienda.js"></script>
+    <script defer src="../assets/js/general.js"></script>
+    <script defer src="../assets/js/tienda.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script>
 </head>
@@ -24,7 +24,6 @@
             <ul class="navLinks">
                 <li><a href="./peliculas.html" class="linksPaginas">Peliculas</a></li>
                 <li><a href="./tienda.html" class="linksPaginas">Tienda</a></li>
-                <li><a href="./contacto.html" class="linksPaginas">Contáctanos</a></li>
             </ul>
         </nav>
         <div class="logo">
@@ -45,7 +44,7 @@
         <input class="inptBuscar" type="search" placeholder="Buscar productos">
     </div>
 
-    <div>
+    <div id = "divPrincipal">
         <h1 class="categoriasTitulo" id="vasos">Vasos</h1>
         <ul id= "divcontenedorVasos" class="categoriasTienda"></ul>
 

@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
     else {
         shopcart = []
     }
-
     const divContenedorVasos = document.getElementById("divcontenedorVasos")
     const divContenedorTermos = document.getElementById("divcontenedorTermos")
     const divContenedorEstatuillas = document.getElementById("divcontenedorEstatuillas")
@@ -27,16 +26,69 @@ document.addEventListener("DOMContentLoaded", function () {
 
     buscarProductos.addEventListener("search", () => {
         let param = buscarProductos.value.trim().toLowerCase()
+        divContenedorVasos.innerHTML = "";
+        divContenedorTermos.innerHTML = "";
+        divContenedorEstatuillas.innerHTML = "";
+        divContenedorAccesorios.innerHTML = "";
+
         let resultadoPorTipo = productos.filter((productos) => productos.tipo.toLowerCase().includes(param))
         console.table(resultadoPorTipo)
+
+        if (resultadoPorTipo.length > 0) {
+            resultadoPorTipo.forEach((producto)=>{
+            if (producto.tipo === "vasos"){
+                divContenedorVasos.innerHTML += armarCards(producto);
+            } else if (producto.tipo === "termos"){
+                divContenedorTermos.innerHTML += armarCards(producto);
+            }
+            else if (producto.tipo === "estatuillas"){
+                divContenedorEstatuillas.innerHTML += armarCards(producto);
+            }
+            else if (producto.tipo === "accesorios"){
+                divContenedorAccesorios.innerHTML += armarCards(producto);
+            }
+        })
+        }
+        
         let resultadoPorNombre = productos.filter((productos) => productos.nombre.toLowerCase().includes(param))
         console.table(resultadoPorNombre)
+
+        if (resultadoPorNombre.length > 0) {
+            resultadoPorNombre.forEach((producto)=>{
+            if (producto.tipo === "vasos"){
+                divContenedorVasos.innerHTML += armarCards(producto);
+            } else if (producto.tipo === "termos"){
+                divContenedorTermos.innerHTML += armarCards(producto);
+            }
+            else if (producto.tipo === "estatuillas"){
+                divContenedorEstatuillas.innerHTML += armarCards(producto);
+            }
+            else if (producto.tipo === "accesorios"){
+                divContenedorAccesorios.innerHTML += armarCards(producto);
+            }
+        })
+        }
+        agregarAlCarrito()
     })
+
+       /* if (resultadoPorTipo.length > 0) {
+            resultadoPorTipo.forEach((producto) => divContenedorPrincipal.innerHTML += armarCards(producto));
+        }
+    
+        if (resultadoPorNombre.length === 0 && resultadoPorTipo.length === 0) {
+            divContenedorPrincipal.innerHTML = armarErrorProductos();
+        }
+        
+        if (param.length === ""){
+            productos.forEach((producto) => divContenedorPrincipal.innerHTML += armarCards(producto))
+        } */
+
+    
 
     function armarCards(producto) {
         return `<li>
                     <img src=${producto.imagen}>
-                    <p class="precios">${producto.precio}</p>
+                    <p class="precios">$${producto.precio}</p>
                     <button id="${producto.id}"class="botonCarrito">Agregar al carrito</button>
                 </li>`
 
@@ -70,7 +122,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     </li>
                     
                  `
-        // TERMINAR!!! ARMAR CARD PARA CUANDO NO CARGUEN LOS PRODUCTOS
     }
 
     function agregarAlCarrito() {
@@ -80,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 boton.addEventListener("click", () => {
                     let productoSeleccionado = productos.find((producto) => producto.id === parseInt(boton.id))
                     shopcart.push(productoSeleccionado)
-                    localStorage.setItem("Carrito", JSON.stringify(shopcart)) /* eliminar para vaciar carrito mientras no tenga boton*/
+                    localStorage.setItem("Carrito", JSON.stringify(shopcart))
                     Swal.fire({
                         position: "top-end",
                         icon: "success",
@@ -91,7 +142,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 })
             })
         }
-    }
+    }  
+
+    
 
     function cargarProductosVasos() {
         const vasos = productos.filter((producto) => producto.tipo === "vasos");
@@ -138,6 +191,7 @@ document.addEventListener("DOMContentLoaded", function () {
             cargarProductosTermos(productos)
             cargarProductosEstatuillas(productos)
             cargarProductosAccesorios(productos)
+            agregarAlCarrito()
         } catch (errorPR) {
             divContenedorVasos.innerHTML = armarErrorProductos()
             divContenedorTermos.innerHTML = armarErrorProductos()
@@ -147,6 +201,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     
     obtenerProductos()
-    agregarAlCarrito()
 
 })  
